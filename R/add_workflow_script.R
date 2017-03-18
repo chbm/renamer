@@ -1,12 +1,9 @@
-library("dplyr")
-library("stringr")
-
-
+#' @export
 add_script <- function(name, wd = getwd(), renumber = FALSE) {
   lookaround_int <- "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)"
   lookbehind_int <- "(?<=\\D)(?=\\d)"
   regex_int <- "[0-9]*[0-9]"
-  
+
   if (grepl(lookaround_int , name, perl = TRUE)) {
     split_name <- str_split(name, lookaround_int) %>% unlist()
     number <- subset(split_name, grepl(pattern = regex_int, split_name))
@@ -14,7 +11,7 @@ add_script <- function(name, wd = getwd(), renumber = FALSE) {
     pattern <- ifelse(length(split_name_pattern) == 1, NA_character_, first(split_name_pattern))
     files_wd <- .list_files(number, wd, pattern)
     file_number_grepl <- grepl(number, files_wd)
-    
+
     if(any(file_number_grepl)) {
       file_conflict <- files_wd[which(file_number_grepl)]
       if (!renumber){
@@ -25,14 +22,14 @@ add_script <- function(name, wd = getwd(), renumber = FALSE) {
         .renumber_files(number, files_wd, wd, pattern)
       }
     }
-    
+
     if(grepl(".*\\.R$", name)) {
       file.edit(name)
     } else {
       file.edit(str_c(name, ".R"))
     }
-    
-    
+
+
   }
 }
 
@@ -43,10 +40,10 @@ add_script <- function(name, wd = getwd(), renumber = FALSE) {
     name <- files[i]
     split_name <- str_split(name, lookaround_int) %>% unlist()
     number_index <- `if`(is.na(pattern), 1, 2)
-    
+
     number_file <- split_name[number_index]
     zero_pad <- str_sub(number_file, start = 1L, end = 1L) == 0 & nchar(number_file) == 2
-    
+
     if (zero_pad & as.numeric(number_file) != 9){
       new_number <- str_pad(as.numeric(number_file) + 1, width = 2, pad = 0)
     } else {
@@ -73,13 +70,13 @@ add_script <- function(name, wd = getwd(), renumber = FALSE) {
   } else {
     stop("max starting_number is 99")
   }
-  
+
   if (is.na(pattern)) {
     final_pattern <- str_c("^", default_pattern)
   } else {
     final_pattern <- str_c("^", pattern, ".*", default_pattern)
   }
   scripts <- list.files(wd, pattern = final_pattern)
-  
+
   return(scripts)
 }

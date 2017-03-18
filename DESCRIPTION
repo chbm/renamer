@@ -1,0 +1,15 @@
+Package: renamer
+Version: 0.1.0
+Description: When files need to be run in sequence it is good practice to prefix them with numbers.
+    This package makes it easier to add a script to the middle of an existing workflow without the need to manually renumber the all the scripts.
+Title: Rename numbered R scripts
+URL: https://github.com/SQuartinAS
+BugReports: https://github.com/SQuartinAS/renamer/issues
+Author: person("Susana", "Quartin", "susanaquartin@gmail.com", role = c("aut", "cre"))
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports:
+    stringr,
+    dplyr
