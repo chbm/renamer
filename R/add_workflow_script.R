@@ -1,4 +1,6 @@
 #' @export
+#' @importFrom stringr str_split str_c str_pad str_sub
+#' @importFrom dplyr "%>%"
 add_script <- function(name, wd = getwd(), renumber = FALSE) {
   lookaround_int <- "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)"
   lookbehind_int <- "(?<=\\D)(?=\\d)"
@@ -33,7 +35,8 @@ add_script <- function(name, wd = getwd(), renumber = FALSE) {
   }
 }
 
-# auxiliary function
+#' @importFrom stringr str_split str_c str_pad str_sub
+#' @importFrom dplyr "%>%"
 .renumber_files <- function(starting_number, files, wd = getwd(), pattern = NA_character_) {
   lookaround_int <- "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)"
   for (i in seq_along(files)) {
@@ -59,7 +62,8 @@ add_script <- function(name, wd = getwd(), renumber = FALSE) {
 }
 
 
-# auxiliary function
+#' @importFrom stringr str_split str_c str_pad str_sub
+#' @importFrom dplyr "%>%"
 .list_files <- function(starting_number, wd = getwd(), pattern = NA_character_) {
   starting_vec <- str_split(starting_number, "") %>% unlist() %>% as.numeric()
   if (length(starting_vec) == 1) {
