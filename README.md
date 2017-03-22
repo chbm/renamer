@@ -20,7 +20,7 @@ Start by adding a few workflow scripts...
 > add_script("03-explore_data.R")
 
 ```
-![](examples/initial_workflow.png)
+![](examples/initial_workflow.PNG)
 
 We now remember we need to add an initial configuration file...
 ```
@@ -32,7 +32,7 @@ Since this can be a pretty drastic change, in case of conflict we need to set th
 ```
 > add_script("01-config.R", renumber = TRUE)
 ```
-![](examples/new_workflow.png)
+![](examples/new_workflow.PNG)
 
 
 [1]: http://adv-r.had.co.nz/Style.html
