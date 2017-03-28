@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/quartin/renamer.png?branch=master)](https://travis-ci.org/quartin/renamer)
+
 # renamer
 Quickly add a new script to a workflow by automatically renumbering the existing scripts.
 
