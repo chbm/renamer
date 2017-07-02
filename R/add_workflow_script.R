@@ -1,4 +1,11 @@
+#' Add a new script to folder
+#'
+#' @param name String with name of the new file to create.
+#' @param wd Path where to create new R script, defaults to working directory.
+#' @param renumber Boolean. Default is FALSE. If the script name has a number which creates conflicts with existing scripts, you will need to set this parameter o TRUE in order to rename all necessary files.
+
 #' @export
+#' @importFrom utils file.edit
 #' @importFrom stringr str_split str_c str_pad str_sub
 #' @importFrom dplyr "%>%"
 add_script <- function(name, wd = getwd(), renumber = FALSE) {
