@@ -2,6 +2,7 @@
 
 export(add_script)
 importFrom(dplyr,"%>%")
+importFrom(dplyr,first)
 importFrom(stringr,str_c)
 importFrom(stringr,str_pad)
 importFrom(stringr,str_split)

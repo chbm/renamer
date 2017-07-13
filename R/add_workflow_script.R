@@ -1,4 +1,4 @@
-#' Add a new script to folder
+#' Add a new script to a directory.
 #'
 #' @param name String with name of the new file to create.
 #' @param wd Path where to create new R script, defaults to working directory.
@@ -7,7 +7,7 @@
 #' @export
 #' @importFrom utils file.edit
 #' @importFrom stringr str_split str_c str_pad str_sub
-#' @importFrom dplyr "%>%"
+#' @importFrom dplyr "%>%" first
 add_script <- function(name, wd = getwd(), renumber = FALSE) {
   lookaround_int <- "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)"
   lookbehind_int <- "(?<=\\D)(?=\\d)"
