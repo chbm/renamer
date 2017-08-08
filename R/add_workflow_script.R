@@ -11,7 +11,7 @@
 add_script <- function(name, wd = getwd(), renumber = FALSE) {
   lookaround_int <- "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)"
   lookbehind_int <- "(?<=\\D)(?=\\d)"
-  regex_int <- "\d+"
+  regex_int <- "\\d+"
 
   if (grepl(lookaround_int , name, perl = TRUE)) {
     split_name <- str_split(name, lookaround_int) %>% unlist()
